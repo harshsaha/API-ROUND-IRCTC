@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Railway Management System - Book Seat</title>
+  </head>
+  <body>
+    <h1>Railway Management System - Book Seat</h1>
+    <form id="book-seat-form">
+      <label for="train_number">Train Number:</label>
+      <input type="text" id="train_number" name="train_number"><br><br>
+      <input type="submit" value="Book Seat">
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script>
+      const bookSeatForm = document.getElementById('book-seat-form');
+
+      bookSeatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const trainNumber = document.getElementById('train_number').value;
+        axios.post('/book', { train_number: trainNumber }, {
+          headers: {
+            Authorization: 'ome_token'
+          }
+        })
+         .then((response) => {
+            console.log(response.data);
+            alert('Seat booked successfully!');
+            // Redirect to dashboard page
+            window.location.href = '/dashboard';
+          })
+         .catch((error) => {
+            console.error(error);
+            alert('Error booking seat!');
+          });
+      });
+    </script>
+  </body>
+</html>

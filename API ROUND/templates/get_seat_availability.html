@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Railway Management System - Get Seat Availability</title>
+  </head>
+  <body>
+    <h1>Railway Management System - Get Seat Availability</h1>
+    <form id="get-availability-form">
+      <label for="source">Source:</label>
+      <input type="text" id="source" name="source"><br><br>
+      <label for="destination">Destination:</label>
+      <input type="text" id="destination" name="destination"><br><br>
+      <input type="submit" value="Get Availability">
+    </form>
+    <div id="availability-list"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script>
+      const getAvailabilityForm = document.getElementById('get-availability-form');
+
+      getAvailabilityForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const source = document.getElementById('source').value;
+        const destination = document.getElementById('destination').value;
+        axios.get(`/trains/${source}/${destination}`)
+         .then((response) => {
+            console.log(response.data);
+            const availabilityList = document.getElementById('availability-list');
+            availabilityList.innerHTML = '';
+            response.data.forEach((train) => {
+              const listItem = document.createElement('li');
+              listItem.textContent = `Train ${train.train_number}: ${train.availability} seats available`;
+              availabilityList.appendChild(listItem);
+            });
+          })
+         .catch((error) => {
+            console.error(error);
+            alert('Error getting availability!');
+          });
+      });
+    </script>
+  </body>
+</html>

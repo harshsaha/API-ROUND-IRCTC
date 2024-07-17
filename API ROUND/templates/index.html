@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Railway Management System</title>
+  <style>
+    /* Add some basic styling to make it look nice */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0; /* Light gray background */
+      background-image: linear-gradient(to bottom, #f0f0f0, #ccc); /* Gradient background */
+    }
+    h1 {
+      color: #333; /* Dark gray text */
+      font-size: 48px;
+      margin-bottom: 10px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow */
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #666; /* Darker gray text */
+    }
+    a {
+      text-decoration: none;
+      color: #337ab7; /* Blue link color */
+    }
+    a:hover {
+      color: #23527c; /* Darker blue on hover */
+    }
+    /* Add some graphics and layout styling */
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff; /* White background */
+      border: 1px solid #ddd; /* Light gray border */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      border-radius: 10px; /* Rounded corners */
+    }
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin: 20px auto;
+      background-image: url('train-logo.png'); /* Replace with your logo image */
+      background-size: contain;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #337ab7; /* Blue button color */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    }
+    .button:hover {
+      background-color: #23527c; /* Darker blue on hover */
+    }
+    /* Add some graphics elements */
+    .train {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background-image: url('train-icon.png'); /* Replace with your train icon image */
+      background-size: contain;
+      border-radius: 50%;
+      animation: move 3s infinite; /* Animate the train moving */
+    }
+    @keyframes move {
+      0% {
+        transform: translate(-50%, -50%) translateX(0);
+      }
+      100% {
+        transform: translate(-50%, -50%) translateX(100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo"></div>
+    <h1>Railway Management System</h1>
+    <p>Welcome to the Railway Management System!</p>
+    <p>
+      <a href="/register" class="button">Register</a>
+      <a href="/login" class="button">Login</a>
+    </p>
+    <div class="train"></div>
+  </div>
+</body>
+</html>
